@@ -1,0 +1,13 @@
+To do list React
+
+instalar:
+npm i @mui/material
+npm install @mui/material @emotion/react @emotion/styled
+
+bibliotecas:
+(MUI CORE):
+"Text Field":
+<TextField id="outlined-basic" label="Outlined" variant="outlined" />
+
+"Button":
+<Button variant="text">Text</Button>
