@@ -1,12 +1,32 @@
 import { Paper, TextField } from "@mui/material";
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
-export default function Form() {
+export default function Form({ todoHandler }) {
+    const [text, setText] = useState(null);
+    const [id, setId] = useState(0);
+
+    const todoCreate = (text) => {
+        const todoObj = { text: text, id: id };
+        setId(id + 1);
+        todoHandler(todoObj);
+    };
+
     return (
-        <Paper>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-            <Button variant="text">ADD</Button>
+        <Paper style={{ padding: "1em"}}>
+            <div style={{ display:"flex", justifyContent:"center" }}>
+                <TextField 
+                id="outlined-basic"
+                label="TAREFA"
+                variant="outlined"
+                onChange={(e) =>
+                setText(e.target.value)}
+                fullWidth
+                />
+                <Button variant="text" onClick={() => todoCreate(text)}>
+                    Add
+                </Button>
+            </div>
         </Paper>
     )
 }
